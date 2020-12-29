@@ -5,7 +5,7 @@ import {NavLink} from 'react-router-dom';
 
 const Header = (props) => {
 	return(
-		<div>
+		<div className="header">
 			I'm a Header
 		</div>
 	)

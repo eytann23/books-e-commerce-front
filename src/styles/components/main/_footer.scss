@@ -1,0 +1,16 @@
+.footer{
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:$white;
+    background: $darkGrey;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
+    a {
+        @extend %a-nav
+    }
+}

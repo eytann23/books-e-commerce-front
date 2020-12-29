@@ -1,0 +1,33 @@
+.product-preview{
+    // width:250px;
+    // height:30vh;
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all ease-in;
+    transition-duration: 200ms;
+    
+    &:hover{
+        cursor: pointer;
+        background-color: rgb(226, 226, 226);
+    }
+
+    img{
+        width: 35%;
+    }
+    h4{
+        font-size: 1.2rem;
+        margin:auto 1rem;
+    }
+    h3{
+        font-size: .8rem;
+        font-weight: 400;
+        margin:auto .5rem;
+    }
+    h5{
+        margin:auto .5rem;
+    }
+}
