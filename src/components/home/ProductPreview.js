@@ -5,7 +5,6 @@ const ProductPreview =(props)=>{
     
     let history=useHistory()
     const onClickProduct=(e)=>{
-        console.log(props.name);
         history.push(`/product/${props.id}`)
     }
     return(

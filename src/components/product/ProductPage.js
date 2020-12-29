@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { CartContext } from '../../context/cartContext';
 import {getBookById} from '../../server/db';
 
 //need to get book details out of db by id
 const ProductPage =(props)=>{
+
+    const {cartDispatch} = useContext(CartContext);
+
     const productId=props.match.params.id;
     let book=getBookById(productId);
 
     const onSubmitAddToCart=(e)=>{
         e.preventDefault();
+
+        cartDispatch({
+            type:"ADD_TO_CART",
+            productId
+        })
+
         alert(`The book was successfully added`)
     }
 
