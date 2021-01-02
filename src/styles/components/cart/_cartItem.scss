@@ -1,0 +1,34 @@
+.cart-item{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    justify-content: start;
+    align-items: center;
+    padding:1.5rem;
+    
+
+    &:hover{
+        background-color: rgb(224, 224, 224);
+    }
+
+    img{
+        width: 80px;
+    }
+
+    input{
+        width:3rem;
+    }
+
+    button{
+        border-radius: 50%;
+        width: fit-content;
+        border: none;
+        background-color: $mediumGrey;
+        color:white;
+        outline: none;
+        padding-bottom: 3px;
+        &:hover{
+            cursor: pointer;
+            background-color: $blackish;
+        }
+    }
+}

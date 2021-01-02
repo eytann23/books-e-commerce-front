@@ -1,0 +1,24 @@
+.cart-items__section{
+    width: 70%;
+    margin: 0 auto;
+
+    .no-items__note{
+        text-align: center;
+        margin:2rem;
+    }
+}
+
+.cart-items__header{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    justify-content: start;
+    align-items: center;
+    padding:1.5rem;
+    background-color: $mediumGrey;
+
+    h3{
+        font-size: 1.2rem;
+    }
+    
+}
+
