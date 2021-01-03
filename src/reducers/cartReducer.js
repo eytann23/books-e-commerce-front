@@ -1,17 +1,17 @@
 //cart=[333415,434632,452356] = array of id
-//optinal [{id:16235,quantity:2},{id:95135,quantity:1}]
+//optinal [{isbn:16235,quantity:2},{isbn:95135,quantity:1}]
 
 export let initCartState=[];
 
 const cartReducer = (cartState, action)=>{
     switch(action.type){
         case "ADD_TO_CART":
-            const indexOfItem = cartState.findIndex((item)=>item.id===action.productId);
+            const indexOfItem = cartState.findIndex((item)=>item.isbn===action.productISBN);
                 if (indexOfItem===-1){
                     return [
                         ...cartState,
                         {
-                            id: action.productId,
+                            isbn: action.productISBN,
                             quantity: 1
                         }
                     ]
@@ -22,11 +22,11 @@ const cartReducer = (cartState, action)=>{
                 
         case "REMOVE_FROM_CART":
             return (
-                [...cartState.filter((item)=>parseInt(item.id)!==parseInt(action.productId))]
+                [...cartState.filter((item)=>parseInt(item.isbn)!==parseInt(action.productISBN))]
             )
         
         case "UPDATE_ITEM_QUANTITY":
-            const index = cartState.findIndex((item)=>parseInt(item.id)===parseInt(action.productId));
+            const index = cartState.findIndex((item)=>parseInt(item.isbn)===parseInt(action.productISBN));
             cartState[index].quantity=action.quantity;
             return cartState;
 

@@ -1,15 +1,15 @@
-export const addToCart = (productId) =>({
+export const addToCart = (productISBN) =>({
     type: "ADD_TO_CART",
-    productId
+    productISBN
 })
 
-export const removeFromCart = (productId) =>({
+export const removeFromCart = (productISBN) =>({
     type: "REMOVE_FROM_CART",
-    productId
+    productISBN
 })
 
-export const updateItemQuantity = (productId,quantity) =>({
+export const updateItemQuantity = (productISBN,quantity) =>({
     type: "UPDATE_ITEM_QUANTITY",
-    productId,
+    productISBN,
     quantity
 })

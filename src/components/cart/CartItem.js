@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { removeFromCart, updateItemQuantity } from '../../actions/cartActions';
 import { CartContext } from '../../context/cartContext';
-import { getBookById } from '../../server/db';
+import { getBookByISBN } from '../../server/db';
 
 const CartItem=(props)=>{
     const initialItemState ={
@@ -14,29 +14,34 @@ const CartItem=(props)=>{
     //Next:
     //itemState only for quantity ?
     //and then:
-    //let book = await getBookById(props.item.id);
+    //let book = await getBookByproductISBN(props.item.isbn);
     
     useEffect(()=>{
-        getBookById(props.item.id)
+        try {
+            getBookByISBN(props.item.isbn)
             .then((book)=>setItemState(
                 {
-                    details: book,
+                    details: book.data,
                     quantity:props.item.quantity
                 }
             ))
+        } catch (error) {
+            console.log(error)
+        }
+        
     },[])
 
     //Remove
-    const onClickRemoveFromCart=(productId)=>{
-        cartDispatch(updateItemQuantity(productId,0))
-        cartDispatch(removeFromCart(productId));
+    const onClickRemoveFromCart=(productISBN)=>{
+        cartDispatch(updateItemQuantity(productISBN,0))
+        cartDispatch(removeFromCart(productISBN));
         props.updateTotalPrice();
         
     }
     //Change quantity
-    const onChangeItemQuantity=(productId,event)=>{
+    const onChangeItemQuantity=(productISBN,event)=>{
         const quantity=event.target.value;
-        cartDispatch(updateItemQuantity(productId,quantity))
+        cartDispatch(updateItemQuantity(productISBN,quantity))
         setItemState({...itemState,quantity})
         props.updateTotalPrice();
     }
@@ -52,10 +57,10 @@ const CartItem=(props)=>{
                 min="1"
                 max="99"
                 onKeyPress={(e)=>{e.preventDefault()}}               
-                onChange={(event)=>onChangeItemQuantity(props.item.id,event)}
+                onChange={(event)=>onChangeItemQuantity(props.item.isbn,event)}
             />
             
-            <button onClick={()=>onClickRemoveFromCart(props.item.id)}>X</button>
+            <button onClick={()=>onClickRemoveFromCart(props.item.isbn)}>X</button>
         </div>
     )
 }

@@ -19,11 +19,11 @@ const AppRouter = () => (
                 </Route>
                 <Route path="/home" component={Home}/>
                 <Route path="/cart" component={CartPage}/>
-                <Route path="/product/:id" component={ProductPage}/>
+                <Route path="/product/:isbn" component={ProductPage}/>
                 <Route path="*" component={PageNotFound}/>
             </Switch>
 
-            <Footer/>
+            {/* <Footer/> */}
 
     </BrowserRouter>
 );

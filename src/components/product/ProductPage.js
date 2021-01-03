@@ -1,18 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { addToCart } from '../../actions/cartActions';
 import { CartContext } from '../../context/cartContext';
-import {getBookById} from '../../server/db';
+import {getBookByISBN} from '../../server/db';
 
 //need to get book details out of db by id
 const ProductPage =(props)=>{
-    const productId=props.match.params.id;
+    const productISBN=props.match.params.isbn;
 
     const {cartState,cartDispatch} = useContext(CartContext);
     const [bookState,setBookState]=useState([]);
     
     useEffect(()=>{
-        getBookById(productId)
-            .then((books)=>setBookState(books))
+        getBookByISBN(productISBN)
+            .then((book)=>setBookState(book.data))
+
     },[])
 
     
@@ -21,10 +22,10 @@ const ProductPage =(props)=>{
     const onSubmitAddToCart=(e)=>{
         e.preventDefault();
         
-        cartDispatch(addToCart(productId));
+        cartDispatch(addToCart(productISBN));
         
         console.log('Added');
-        // console.log(cartState[0]);
+        
     }
 
     return(

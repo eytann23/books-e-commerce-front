@@ -1,6 +1,6 @@
 import React, { useContext,useEffect,useState } from 'react';
 import { CartContext } from '../../context/cartContext';
-import { getBookById } from '../../server/db';
+import { getBookByISBN } from '../../server/db';
 import CartItem from './CartItem';
 import CartTotalBox from './CartTotalBox';
 
@@ -15,14 +15,19 @@ const CartPage =()=>{
  
 
     const updateTotalPrice= async ()=>{
-        let total=0;
-        for (let item of cartState){
-            let book = await getBookById(item.id);
-            const price=parseFloat(book.price);
-            const quantity=parseFloat(item.quantity);
-            total+=price*quantity;
+        try {
+            let total=0;
+            for (let item of cartState){
+                let book = await getBookByISBN(item.isbn);
+                const price=parseFloat(book.data.price);
+                const quantity=parseFloat(item.quantity);
+                total+=price*quantity;
         }
         setTotalPriceState(total)
+        } catch (error) {
+            console.log(error)
+        }
+        
     }
 
     return(
@@ -41,7 +46,7 @@ const CartPage =()=>{
                 {cartState.map((item)=>{
                     return(
                         <CartItem
-                            key={item.id}
+                            key={item.isbn}
                             item={item}
                             updateTotalPrice={updateTotalPrice}
                         />
