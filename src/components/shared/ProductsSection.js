@@ -1,25 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React from 'react';
 import ProductPreview from './ProductPreview';
-import {getBooksFromDB} from '../../server/db';
 
-const ProductsSection =()=>{
-    const [booksState,setBooksState]=useState([]);
+const ProductsSection =(props)=>{
 
-    useEffect(()=>{
-        try {
-            getBooksFromDB()
-                .then((books)=>setBooksState(books))
-        } catch (error) {
-            console.log(error)
-        }
-        
-    },[])
 
     return(
             
             <div className="products-section">
-                {/* <img src={testState} alt="" /> */}
-            {booksState.map((book,index)=>{
+            {props.booksToDisplay.map((book,index)=>{
                 return (
                     //need to change the key after connecting to a real db
                     <ProductPreview

@@ -13,8 +13,7 @@ const ProductPage =(props)=>{
     useEffect(()=>{
         getBookByISBN(productISBN)
             .then((book)=>setBookState(book.data))
-
-    },[])
+    },[props.match.params])
 
     
 

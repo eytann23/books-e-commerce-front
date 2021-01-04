@@ -32,19 +32,5 @@
         text-decoration: none;
     }
 
-    input{
-        margin: 1rem auto;
-        padding: 1rem;
-        width: 30%;
-        background-color:rgba(255,255,255,1) ;
-        color:$blackish;
-        border: transparent;
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
-        outline: none;
-    }
-    input::placeholder{
-        color:$blackish;
-        font-weight: 300;
-    }
+    
 }

@@ -7,6 +7,7 @@ import PageNotFound from '../main/PageNotFound';
 import Home from '../home/Home';
 import CartPage from '../cart/CartPage';
 import ProductPage from '../product/ProductPage';
+import SearchPage from '../search/SearchPage';
 
 
 const AppRouter = () => (
@@ -20,6 +21,7 @@ const AppRouter = () => (
                 <Route path="/home" component={Home}/>
                 <Route path="/cart" component={CartPage}/>
                 <Route path="/product/:isbn" component={ProductPage}/>
+                <Route path="/search/:value" component={SearchPage}/>
                 <Route path="*" component={PageNotFound}/>
             </Switch>
 
