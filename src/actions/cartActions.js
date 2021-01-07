@@ -13,3 +13,8 @@ export const updateItemQuantity = (productISBN,quantity) =>({
     productISBN,
     quantity
 })
+
+export const setCart = (cart) =>({
+    type: "SET_CART",
+    cart
+})

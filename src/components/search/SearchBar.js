@@ -43,8 +43,9 @@ const SearchBar = (props) => {
     };
     const onBlurSearchInput=()=>{
         setTimeout(() => {
+            console.log("close dropdown")
             setIsSearchInputOnFocus(false)
-        }, 100)
+        }, 150)
     }
 
     const isSearchDropdownDisplay=()=>{

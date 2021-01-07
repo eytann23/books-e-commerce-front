@@ -21,8 +21,11 @@ const SearchPage = (props)=>{
     }
 
     useEffect(()=>{
+        // let isMounted = true;
         setBooksToDisplay([])
         searchBooks(searchValue)
+
+        // return () => { isMounted = false };
     },[props.match.params.value])
 
     return(

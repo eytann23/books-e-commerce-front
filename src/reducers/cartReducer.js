@@ -29,6 +29,9 @@ const cartReducer = (cartState, action)=>{
             const index = cartState.findIndex((item)=>parseInt(item.isbn)===parseInt(action.productISBN));
             cartState[index].quantity=action.quantity;
             return cartState;
+        
+        case "SET_CART":
+            return [...action.cart];
 
         default:
             return cartState;

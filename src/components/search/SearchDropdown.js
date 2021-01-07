@@ -5,6 +5,7 @@ const SearchDropdown=(props)=>{
 
     const history = useHistory();
     const onClickResult = (isbn)=>{
+        console.log("open ",isbn)
         history.push(`/product/${isbn}`)
         props.setInputValue("");
         props.setBooksToDisplay([])
