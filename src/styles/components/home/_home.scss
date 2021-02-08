@@ -11,8 +11,17 @@
     //     font-size: 2rem;
     // }
 
-    h1{
+    h2{
         font-size: 3rem;
         text-align: center;
+        font-weight: 300;
+    }
+    .category__title{
+        font-size: 1.4rem;
+        font-weight: 700;
+        text-align: left;
+        margin:0 1.5rem;
+        padding-bottom: .5rem;
+        border-bottom:1px solid rgb(182, 182, 182);
     }
 }

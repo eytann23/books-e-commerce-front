@@ -1,0 +1,18 @@
+.add-new-product{
+    justify-content: center;
+    color: $darkGrey;
+    opacity: .6;
+    transition: all 200ms ease-in-out;
+    svg{
+        height: 60px;
+        width: 60px;
+        fill: $darkGrey;
+    }
+    .add-new-product__label{
+        font-size: 1.3rem;
+    }
+
+    &:hover{
+        opacity: 1;
+    }
+}

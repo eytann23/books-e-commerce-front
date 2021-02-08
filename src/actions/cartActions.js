@@ -1,6 +1,7 @@
-export const addToCart = (productISBN) =>({
+export const addToCart = (productISBN,quantity) =>({
     type: "ADD_TO_CART",
-    productISBN
+    productISBN,
+    quantity
 })
 
 export const removeFromCart = (productISBN) =>({

@@ -1,0 +1,86 @@
+.cart-alert__container{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: $lightGreen;
+    border: .5px solid transparent;
+    border-radius: 10px;
+    box-shadow: 0 0 5px grey;
+    animation: bounce 1s both;
+
+    .message{
+        color:white;
+        font-size: .8rem;
+        font-weight: 300;
+        display: flex;
+        line-height: 1.6;
+    }
+
+    button{
+        border-radius: 15px;
+        padding:.5rem .8rem;
+        font-size: .8rem;
+        background-color: transparent;
+        color:white;
+        border: 1px solid white;
+        outline: none;
+        transition: all 400ms ease-in-out;
+        &:hover{
+            cursor: pointer;
+            background-color: rgb(245, 245, 245);
+            color:$lightGreen;
+        }
+    }
+    svg{
+        height: 40px;
+        width: 40px;
+        fill: white;
+        
+    }
+}
+
+.page{
+    .cart-alert__container{
+        top:10px;
+        left:40%;
+        padding: .8rem;
+    }
+}
+
+.product-preview{
+    .cart-alert__container{
+        top:-5px;
+        left:0;
+        width: calc(100% + 3px);
+        font-size: .8rem;
+        padding: .8rem;
+
+        .message{
+            font-size: .7rem;
+        }
+        svg{
+            display: none;
+        }
+
+        button{
+            margin-top: 5px;
+        }
+    }
+    
+}
+
+
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0)}
+    40% {transform: translateY(-20px)}
+    60% {transform: translateY(-10px)}
+    0%{
+        opacity: 0;
+    }
+    40%{
+        opacity: 1;
+    }
+ } 

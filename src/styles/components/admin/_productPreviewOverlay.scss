@@ -1,0 +1,103 @@
+//admin overlay
+.overlay{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    top:0;
+    left: 0;
+    background-color: rgba(0,0,0,.5);
+    border-radius: 10px;
+    animation: fade-in 200ms ease-in-out;
+    
+    
+    button{
+        position: relative;
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        width:70%;
+        padding: .5rem 1rem;
+        
+        margin:1rem auto;
+        background-color: rgba(0,0,0,.8);
+        color: white;
+        font-weight: 700;
+        border: 1px solid rgba(255,255,255,.7);
+        border-radius: 10px;
+        outline: none;
+        transition: all 200ms ease-in;
+
+        svg{
+            // position: absolute;
+            // left:10%;
+            margin-right: 1rem;
+            fill: white;
+            transition: all 200ms ease-in-out;
+        }
+        
+        &:hover{
+            cursor: pointer;
+            color: $darkGrey;
+            background-color: rgba(255, 255, 255, 0.9);
+            
+            svg{
+                fill: $darkGrey;
+            }
+        }
+    }
+
+    .admin-buttons{
+        width:70%;
+        margin-top: 1rem;
+        
+        button{
+            width:100%;
+            margin:.2rem auto;
+        }
+
+        svg{
+            height: 20px;
+        }
+        .yellow{
+            background-color: rgba(255, 215, 71,.9);
+            color:$darkGrey;
+            svg{
+                fill:$darkGrey;
+            }
+            &:hover{
+                
+                background-color: rgba(255, 255, 255, .9);
+                svg{
+                    fill: $darkGrey;
+                }
+            }
+        }
+        .red{
+            background-color: rgba(221, 48, 48,.9);
+            &:hover{
+                color: rgb(184, 57, 48);
+                background-color: rgba(255, 255, 255, 0.9);
+                svg{
+                    fill:rgb(184, 57, 48);
+                }
+            }
+        }
+    }
+}
+
+
+@keyframes fade-in{
+    0%{
+        opacity: 0;
+        width: 0%;
+    }
+    100%{
+        opacity: 1;
+        width: 100%;
+    }
+}

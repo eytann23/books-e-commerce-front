@@ -41,7 +41,7 @@ const SignInForm = (props) => {
 	const history = useHistory();
 	const onSubmitform = (event) => {
 		event.preventDefault();
-        console.log("login form:", email, password);
+        console.log("sign in form:", email, password);
         
         signInToSite(email,password).then(
             (userData)=>{
@@ -64,7 +64,7 @@ const SignInForm = (props) => {
 		<div className="signin-form">
 			<h3>Sign In</h3>
 
-		{errorMessage!=="" && <div className="error-message">{errorMessage}</div>}
+		{/* {errorMessage!=="" && <div className="error-message">{errorMessage}</div>} */}
 
 			<form onSubmit={onSubmitform}>
 				<input placeholder="Email" onBlur={onBlurEmailInput} />
@@ -73,7 +73,8 @@ const SignInForm = (props) => {
 				{!isPasswordInputValid && <div className="invalid-message">You must enter your password.</div>}
 				<div className="signin-form__nav">
 					<button type="submit" disabled={isFormInavlid()}>Submit</button>
-					<div onClick={onClickSignUp}>Sing Up</div>
+					{errorMessage!=="" && <p className="error-message">{errorMessage}</p>}
+					<div onClick={onClickSignUp}>Don't have an account?</div>
 				</div>
 			</form>
 		</div>

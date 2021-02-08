@@ -56,16 +56,17 @@ const SignUpForm = (props) => {
 
     const onBlurUsername = (event) => {
         const newUsername = event.target.value.trim();
-        const isUsenamevalid = (value) => {
-            return value.length>1;
+        
+        const isUsernameValid = (value) => {
+            return (value!=="admin" && value.length>1);
         };
         validateInput(
             newUsername,
             0,
-            isUsenamevalid,
+            isUsernameValid,
             setUsername,
             "You must enter a username",
-            "Username must be longer"
+            "Invalid username"
         );
     };
 
@@ -79,7 +80,7 @@ const SignUpForm = (props) => {
             validator.isEmail,
             setEmail,
             "You must enter your email",
-            "Email invalid"
+            "Invalid email"
         );
     };
 
@@ -136,7 +137,7 @@ const SignUpForm = (props) => {
         <div className="signin-form">
             <h3>Sign Up</h3>
 
-            {errorMessage!=="" && <div className="error-message">{errorMessage}</div>}
+            {/* {errorMessage!=="" && <div className="error-message">{errorMessage}</div>} */}
 
             <form onSubmit={onSubmitform}>
                 <input placeholder="Username" className={inputClasses[0]} onBlur={onBlurUsername} />
@@ -150,7 +151,8 @@ const SignUpForm = (props) => {
 
                 <div className="signin-form__nav">
                     <button type="submit" disabled={isFormInvalid()}>Submit</button>
-                    <div onClick={onClickLogin}>Sing In</div>
+                    {errorMessage!=="" && <p className="error-message">{errorMessage}</p>}
+                    <div onClick={onClickLogin}>Already have an account?</div>
                 </div>
             </form>
         </div>

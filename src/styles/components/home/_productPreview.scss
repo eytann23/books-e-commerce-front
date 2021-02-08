@@ -1,36 +1,72 @@
 .product-preview{
-    // width:250px;
-    // height:30vh;
-    border: 1px solid rgb(212, 212, 212);
-    border-radius: 5px;
+    height:330px;
+    position: relative;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
-    // justify-content: start;
     align-items: center;
-    transition: all ease-in;
-    transition-duration: 200ms;
     
-    &:hover{
-        cursor: pointer;
-        background-color: rgb(226, 226, 226);
+    img{
+        width: 70%;
+        height: 60%;
+        margin-top: .5rem;
+        border-radius: 5px;
+        box-shadow: 0 0 5px grey;
+    }
+    .product-details{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 30%;
+        width: 70%;
+        margin-top: .8rem;
+        h4{
+            font-size: 1rem;
+            margin: .2rem 0;
+        }
+        h3{
+            font-size: .8rem;
+            font-weight: 400;
+            margin:.2rem 0;
+            text-align: left;
+        }
+        h5{
+            margin:.2rem 0;
+        }
     }
 
-    img{
-        width: 110px;
-        height: 150px;
-        margin-top: .5rem;
+    &:hover{
+        cursor: pointer;
+        // border: 1px solid rgba(212, 212, 212,.5);
+        box-shadow: 0 0 10px rgb(194, 194, 194);
     }
-    h4{
-        font-size: 1.2rem;
-        margin: .2rem .3rem;
-        text-align: center;
+
+    //add to cart
+    .button__add-to-cart{
+        position: absolute;
+        right: 15px;
+        bottom: 15px;
+        padding:10px;
+        padding-bottom: 6px;
+        border-radius: 50%;
+        background-color: white;
+        box-shadow: 0 0 5px rgb(195, 195, 195);
+        transition: all 200ms ease-in-out;
+
+        svg{
+            // fill: $darkOrange;
+            fill: $lightGreen;
+        }
+
+        &:hover{
+            transform: scale(1.2);
+            // background-color: $darkOrange;
+            background-color: $lightGreen;
+            
+            svg{
+                fill: white;
+            }
+        }
     }
-    h3{
-        font-size: .8rem;
-        font-weight: 400;
-        margin:.2rem auto;
-    }
-    h5{
-        margin:.2rem auto;
-    }
+    
 }

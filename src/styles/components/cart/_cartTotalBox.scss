@@ -1,0 +1,36 @@
+.total-box{
+    display: flex;
+    flex-direction: column;
+    float: right;
+    align-items: center;
+    // border: 1px solid grey;
+    padding: .5rem 2rem;
+
+    h3{
+        font-weight: 500;
+        font-size: 1.2rem;
+        span{
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-left:2rem;
+        }
+    }
+
+    button{
+        width: 100%;
+        padding: .5rem 0;
+        background-color: $lightGreen;
+        color:white;
+        outline: none;
+        border-radius: 5px;
+        border:1px solid transparent;
+        font-size: 1.2rem;
+        transition: all 400ms ease-in-out;
+        &:hover{
+            cursor: pointer;
+            background-color: white;
+            color:$lightGreen;
+            border:1px solid $lightGreen;
+        }
+    }
+}

@@ -1,6 +1,8 @@
 import React, { useContext,useEffect,useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { CartContext } from '../../context/cartContext';
 import { getBookByISBN } from '../../server/db';
+import BackToShopButton from '../shared/BackToShopButton';
 import CartItem from './CartItem';
 import CartTotalBox from './CartTotalBox';
 
@@ -13,7 +15,7 @@ const CartPage =()=>{
     },[])
 
  
-
+    
     const updateTotalPrice= async ()=>{
         try {
             let total=0;
@@ -32,14 +34,15 @@ const CartPage =()=>{
 
     return(
         <div className="page">
-            <h1>My Cart</h1>
+            <h1>Shopping Cart</h1>
             
             <div className="cart-items__section">
                 <div className="cart-items__header">
-                    <h3> </h3>
+                    <h3>Item</h3>
                     <h3>Name</h3>
                     <h3>Price</h3>
                     <h3>Quantity</h3>
+                    <h3>Total</h3>
                     <h3> </h3>
                 </div>
                 {(cartState.length===0) && <div className="no-items__note">There are no items...</div>}
@@ -52,7 +55,8 @@ const CartPage =()=>{
                         />
                     )
                 })}
-
+                
+                <BackToShopButton/>
                 <CartTotalBox total={totalPriceState}/>
 
             </div>

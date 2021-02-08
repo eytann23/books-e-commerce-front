@@ -1,7 +1,9 @@
 @import './base/base';
 @import './base/settings';
+@import './base/devices';
 @import './components/main/footer';
 @import './components/main/header';
+@import './components/main/loader';
 @import './components/home/home';
 @import './components/home/productPreview';
 @import './components/home/productsSection';
@@ -14,3 +16,10 @@
 @import './components/search/searchDropdown';
 @import './components/search/searchPage';
 @import './components/signin/signin';
+@import './components/cart/addToCartAlert';
+@import './components/cart/cartTotalBox';
+@import './components/admin/modal';
+@import './components/admin/productPreviewOverlay';
+@import './components/admin/addNewProduct';
+@import './components/shared/inputNumber';
+@import './components/shared/backToShopButton';

@@ -1,6 +1,6 @@
 .products-section{
     display: grid;
-    grid-template-columns: repeat(5,240px);
+    grid-template-columns: repeat(5,210px);
     grid-gap: 1rem;
     margin:3rem auto;
     grid-auto-flow: row;
@@ -8,7 +8,7 @@
 
 @media (max-width: 1350px){
     .products-section{
-        grid-template-columns: repeat(4,220px);
+        grid-template-columns: repeat(4,210px);
     }
 }
 

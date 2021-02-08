@@ -1,10 +1,13 @@
 .search{
     width: 30%;
     height: 60%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: 0 0 10px rgba(204, 204, 204,.5);
     form{
 
         display: grid;
-        grid-template-columns: 85% 15%;
+        grid-template-columns: 90% 10%;
         height: 100%;
         // margin: 1rem auto;
         // padding: .5rem;
@@ -23,21 +26,23 @@
             font-weight: 300;
             
         }
-    
         button{
-            background-image: url( '../../sources/search.svg' );
-            background-repeat: no-repeat;
-            background-position: center;
-            background-color: transparent;
-            background-size: 50%;
-            border-top-right-radius: 10px;
-            border-bottom-right-radius: 10px;
+            min-width:40px;
+            border: transparent;
+            line-height: .8;
+            background-color: $eggYellow;
+            box-shadow:-5px 0 8px -2px rgb(185, 185, 44);
+            outline: none;
+            transition: all 400ms ease-in-out;
             &:hover{
                 cursor: pointer;
+                box-shadow:-5px 0 8px -2px $eggYellow;
+                svg{
+                    fill:$darkGrey;
+                }
             }
-
-            &:focus{
-                outline: none;
+            svg{
+                fill:$mediumGrey;
             }
         }
     }

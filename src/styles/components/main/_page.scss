@@ -1,11 +1,9 @@
 .page{
-    width:100%;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin:4rem auto;
     display: flex;
-    justify-content: center;
     flex-direction: column;
-
+    justify-content: center;
+    position: relative;
     // div{
     //     color: $darkGrey;
     //     font-size: 2rem;
@@ -13,6 +11,17 @@
 
     h1{
         font-size: 2rem;
-        text-align: center;
+        text-align: left;
+    }
+
+
+    @media #{$bigScreen}{
+        width: 80%;
+    }
+    @media #{$mediumScreen}{
+        width: 90%;
+    }
+    @media #{$smallScreen}{
+        width: 100%;
     }
 }

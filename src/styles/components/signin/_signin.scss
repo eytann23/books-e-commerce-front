@@ -8,24 +8,26 @@
   }
   
   .signin-page__form {
-    width: 40%;
-    border: 2px solid black;
-    border-radius: 5px;
+    width: 30%;
+    // border: 1px solid rgb(153, 153, 153);
+    box-shadow: 0 0 20px rgba(0,0,0,.3);
+    border-radius: 10px;
     margin: 2rem;
     padding: 1rem;
   }
   
   .signin-form {
     h3 {
-      text-align: center;
-      color: black;
+      text-align: left;
+      font-size: 2rem;
+      color: $darkGrey;
     }
   
     input {
       display: block;
       width: 100%;
       padding: 0.5rem;
-      border: 1px solid black;
+      border: 1px solid $lightGrey;
       margin-top: 1rem;
       border-radius: 5px;
   
@@ -37,10 +39,12 @@
     button {
       display: block;
       padding: 0.5rem;
-      background: black;
+      background: $lightGreen;
       color: white;
       border: none;
       border-radius: 5px;
+      width: 100%;
+      outline: none;
       cursor: pointer;
   
       &:disabled {
@@ -63,19 +67,27 @@
     padding-top: 1rem;
     display: flex;
     justify-content: space-between;
-  
+    align-items: center;
+    flex-direction: column;
+    // div {
+    //   font-size: 0.75rem;
+    //   align-self: flex-end;
+    //   text-decoration: underline;
+    //   color: black;
+    // }
     div {
-      font-size: 0.75rem;
-      align-self: flex-end;
       text-decoration: underline;
       color: black;
+      &:hover{
+        cursor: pointer;
+        font-weight: 700;
+      }
     }
   }
 
   .error-message{
     color: red;
-    background-color: #ccc;
-    border-radius: 5px;
-    padding:.5rem;
     text-align: center;
+    height: auto;
+    margin: .5rem;
   }

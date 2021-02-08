@@ -1,0 +1,23 @@
+.back-to-shop__button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    // justify-content: left;
+    
+    width: fit-content;
+    transition: transform 400ms ease-in-out;
+    float: left;
+    margin-top: 4rem;
+    
+    // svg{
+        
+    // }
+    h2{
+        margin: 1rem;
+    }
+
+    &:hover{
+        cursor: pointer;
+        transform: translateX(-10px);
+    }
+}

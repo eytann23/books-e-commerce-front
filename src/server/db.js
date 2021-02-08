@@ -32,9 +32,6 @@ export const getBooksFromDB = async () =>{
 }
 
 
-
-
-
 export const getBookByISBN = async (isbn)=>{
     try {
         const book = await Axios.get(`http://localhost:3001/books/get?isbn=${isbn}`);
@@ -49,41 +46,65 @@ export const getBookByISBN = async (isbn)=>{
     
 }
 
+export const addNewBookToDB = async (bookData)=>{
+    const config = {
+        headers: {
+            'content-type': 'multipart/form-data'
+        }
+    };
+    let formdata = new FormData();
+    for (const [key, value] of Object.entries(bookData)) {
+        formdata.append(key,value);
+    }
+    try {
+        const book = await Axios.post(
+            `http://localhost:3001/books/add`,
+            formdata,
+            config
+        );
+        // console.log(err.response)
+        return book;
+    } catch (error) {
+        // console.log(error.response)
+        throw error;
+    }
+}
+
+export const deleteBookByISBN = async (isbn)=>{
+    try {
+        const book = await Axios.delete(`http://localhost:3001/books/delete?isbn=${isbn}`);
+        if(!book)
+            throw new Error (`Didn't find a book (ISBN: ${isbn})`)
+
+        return book.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
+export const editBookByISBN = async (isbn,data)=>{
+    const config = {
+        headers: {
+            'content-type': 'multipart/form-data'
+        }
+    };
+    let formdata = new FormData();
+    for (const [key, value] of Object.entries(data)) {
+        formdata.append(key,value);
+    }
 
-// const DB_URL = process.env.REACT_APP_DB
+    try {
+        const book = await Axios.patch(
+            `http://localhost:3001/books/edit?isbn=${isbn}`,
+            formdata,
+            config
+        );
+        if(!book)
+            throw new Error (`Didn't find a book (ISBN: ${isbn})`)
 
-//real-time db
-
-// export const getBooksFromDB = async ()=>{
-//     try{
-//         const res=await Axios.get(DB_URL+"books.json");
-//         const books=[];
-//         for (let id in res.data){
-//             books.push({
-//                 id: res.data[id].id,
-//                 name: res.data[id].name,
-//                 author:res.data[id].author,
-//                 price:res.data[id].price,
-//                 img:res.data[id].img
-//             })
-//         }
-        
-//         return books;
-
-//     }catch(e){
-//         console.log(e);
-//     }
-// }
-
-// export const postBookInDB=async (bookObj)=>{
-//     try {
-//         const res=await Axios.post(
-//             DB_URL+"books.json",
-//             bookObj);
-//         return res.data.bookObj;
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
+        return book.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
