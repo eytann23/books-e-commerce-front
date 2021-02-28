@@ -42,6 +42,7 @@ export const getBookByISBN = async (isbn)=>{
         return book;
     } catch (error) {
         console.log(error);
+        throw new Error();
     }
     
 }

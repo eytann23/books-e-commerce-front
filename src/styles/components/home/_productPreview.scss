@@ -39,10 +39,14 @@
         cursor: pointer;
         // border: 1px solid rgba(212, 212, 212,.5);
         box-shadow: 0 0 10px rgb(194, 194, 194);
+        .button__add-to-cart{
+            display: block;
+        }
     }
 
     //add to cart
     .button__add-to-cart{
+        display: none;
         position: absolute;
         right: 15px;
         bottom: 15px;
@@ -56,17 +60,24 @@
         svg{
             // fill: $darkOrange;
             fill: $lightGreen;
+            
         }
 
         &:hover{
             transform: scale(1.2);
-            // background-color: $darkOrange;
             background-color: $lightGreen;
-            
+            // background-image: linear-gradient($lightGreen, rgba(83, 83, 83,.3));
+            box-shadow: 0 0 10px rgba($lightGreen,.8);
             svg{
                 fill: white;
             }
         }
+
+        @media #{$smallScreen},#{$mediumScreen} {
+            display: block;
+        }
+
     }
     
 }
+

@@ -7,17 +7,16 @@
     form{
 
         display: grid;
-        grid-template-columns: 90% 10%;
+        grid-template-columns: auto 40px;
         height: 100%;
-        // margin: 1rem auto;
-        // padding: .5rem;
+
         input{
              
             background-color:rgba(255,255,255,1) ;
             color:$blackish;
             border: transparent;
-            border-top-left-radius: 10px;
-            border-bottom-left-radius: 10px;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
             outline: none;
             padding-left: 1rem;
         }
@@ -33,6 +32,7 @@
             background-color: $eggYellow;
             box-shadow:-5px 0 8px -2px rgb(185, 185, 44);
             outline: none;
+            z-index: 10;
             transition: all 400ms ease-in-out;
             &:hover{
                 cursor: pointer;
@@ -47,5 +47,32 @@
         }
     }
 
+    
+}
+
+@media #{$mediumScreen}, #{$smallScreen}{
+    .search{
+        width: 45%;
+    }
+    
+}
+
+@media #{$smallScreen}{
+    .search{
+        display: block;
+        position: absolute;
+        height: 35%;
+        width: calc(100% - 2rem);
+        // width: 100%;
+        // width: auto;
+        left:0;
+        bottom: 5px;
+        margin:auto 1rem;
+        border-radius: 5px;
+        button{
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+    }
     
 }

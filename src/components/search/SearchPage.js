@@ -38,7 +38,7 @@ const SearchPage = (props)=>{
     return(
         (waitingForApi&&<Loader/>)||
         <div className="page search-page">
-            <h2>Results for "{searchValue}"</h2>
+            <h2>Results for "{searchValue}":</h2>
             {booksToDisplay.length>0 ? 
             <ProductsSection booksToDisplay={booksToDisplay}/> :
             <h4>No results found...</h4>}

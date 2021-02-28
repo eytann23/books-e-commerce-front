@@ -1,19 +1,11 @@
 .products-section{
     display: grid;
-    grid-template-columns: repeat(5,210px);
+    // justify-content: space-between;
+    justify-content: center;
+    align-items: stretch;
+    grid-template-columns: repeat(auto-fill,210px);
     grid-gap: 1rem;
-    margin:3rem auto;
+    margin-top: 3rem;
     grid-auto-flow: row;
 }
 
-@media (max-width: 1350px){
-    .products-section{
-        grid-template-columns: repeat(4,210px);
-    }
-}
-
-@media (max-width: 990px){
-    .products-section{
-        grid-template-columns: repeat(3,200px);
-    }
-}

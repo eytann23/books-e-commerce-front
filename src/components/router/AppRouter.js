@@ -10,6 +10,8 @@ import ProductPage from '../product/ProductPage';
 import SearchPage from '../search/SearchPage';
 import SignInPage from '../signin/SignInPage';
 import UserContextProvider from '../../context/userContext';
+import PurchasesPage from '../purchases/PurchasesPage';
+import PrivateRoute from './PrivateRoute';
 
 
 const AppRouter = () => (
@@ -23,6 +25,7 @@ const AppRouter = () => (
                     </Route>
                     <Route path="/home" component={Home}/>
                     <Route path="/cart" component={CartPage}/>
+                    <PrivateRoute path="/purchases" component={ PurchasesPage } />
                     <Route path="/product/:isbn" component={ProductPage}/>
                     <Route path="/search/:value" component={SearchPage}/>
                     <Route path="/signin" component={SignInPage}/>

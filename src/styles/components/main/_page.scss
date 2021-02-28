@@ -16,12 +16,14 @@
 
 
     @media #{$bigScreen}{
-        width: 80%;
+        width: 85%;
     }
     @media #{$mediumScreen}{
         width: 90%;
+        
     }
     @media #{$smallScreen}{
-        width: 100%;
+        width: 95%;
+        margin:6rem auto;
     }
 }

@@ -2,13 +2,14 @@ import React, { useContext,useEffect,useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { CartContext } from '../../context/cartContext';
 import { getBookByISBN } from '../../server/db';
+import Loader from '../main/Loader';
 import BackToShopButton from '../shared/BackToShopButton';
 import CartItem from './CartItem';
 import CartTotalBox from './CartTotalBox';
 
 const CartPage =()=>{
     const {cartState} = useContext(CartContext);
-    const [totalPriceState,setTotalPriceState] = useState(0);
+    const [totalPriceState,setTotalPriceState] = useState(" ");
     
     useEffect(()=>{
         updateTotalPrice();
@@ -33,6 +34,7 @@ const CartPage =()=>{
     }
 
     return(
+        (totalPriceState===" " && <Loader/>)||
         <div className="page">
             <h1>Shopping Cart</h1>
             
@@ -42,7 +44,7 @@ const CartPage =()=>{
                     <h3>Name</h3>
                     <h3>Price</h3>
                     <h3>Quantity</h3>
-                    <h3>Total</h3>
+                    <h3 className="total__header">Total</h3>
                     <h3> </h3>
                 </div>
                 {(cartState.length===0) && <div className="no-items__note">There are no items...</div>}
@@ -56,13 +58,10 @@ const CartPage =()=>{
                     )
                 })}
                 
-                <BackToShopButton/>
-                <CartTotalBox total={totalPriceState}/>
-
-            </div>
-            
                 
-
+                <CartTotalBox total={totalPriceState}/>
+                <BackToShopButton/>
+            </div>
         </div>
     )
 }

@@ -28,6 +28,15 @@ const EditModal = (props) => {
         props.setIsHover(false);
     }
 
+    const onBlurIfEmpty=(fieldName)=>{
+        if (!bookDetails[fieldName]){
+            setBookDetails({
+                ...bookDetails,
+                [fieldName]: props.book[fieldName]
+            })
+        }
+    }
+
     const onChangeTitle=(e)=>{
         setBookDetails({
             ...bookDetails,
@@ -35,10 +44,12 @@ const EditModal = (props) => {
         })
     }
     const onChangePrice=(e)=>{
-        setBookDetails({
-            ...bookDetails,
-            price: e.target.value
-        })
+        if(!isNaN(e.target.value)){
+            setBookDetails({
+                ...bookDetails,
+                price: e.target.value
+            })
+        }
     }
     const onChangeAuthor=(e)=>{
         setBookDetails({
@@ -73,13 +84,13 @@ const EditModal = (props) => {
                         <label>ISBN:</label>
                         <h4>{bookDetails.isbn}</h4>
                         <label>Title:</label>
-                        <input type="text" value={bookDetails.name} onChange={onChangeTitle}/>
+                        <input type="text" value={bookDetails.name} onBlur={()=>onBlurIfEmpty("name")} onChange={onChangeTitle}/>
                         <label>Author:</label>
-                        <input type="text" value={bookDetails.author} onChange={onChangeAuthor}/>
+                        <input type="text" value={bookDetails.author} onBlur={()=>onBlurIfEmpty("author")} onChange={onChangeAuthor}/>
                         <label>Description:</label>
-                        <textarea rows="4" value={bookDetails.description} onChange={onChangeDescription}></textarea>
+                        <textarea rows="4" value={bookDetails.description} onBlur={()=>onBlurIfEmpty("description")} onChange={onChangeDescription}></textarea>
                         <label>Price:</label>
-                        <input type="text" value={bookDetails.price} onChange={onChangePrice}/>                  
+                        <input type="text" value={bookDetails.price} onBlur={()=>onBlurIfEmpty("price")} onChange={onChangePrice}/>                  
                         <button type="submit" className="green">Save</button>
                         <button onClick={closeModal}>Cancel</button>
                     </form>

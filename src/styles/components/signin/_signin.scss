@@ -91,3 +91,16 @@
     height: auto;
     margin: .5rem;
   }
+
+
+@media #{$mediumScreen}{
+  .signin-page__form {
+    width: 50%;
+  }
+}
+
+@media #{$smallScreen}{
+  .signin-page__form {
+    width: 80%;
+  }
+}

@@ -1,5 +1,5 @@
-@import './base/base';
 @import './base/settings';
+@import './base/base';
 @import './base/devices';
 @import './components/main/footer';
 @import './components/main/header';
@@ -16,10 +16,12 @@
 @import './components/search/searchDropdown';
 @import './components/search/searchPage';
 @import './components/signin/signin';
-@import './components/cart/addToCartAlert';
+@import './components/cart/_addToCartAlert';
 @import './components/cart/cartTotalBox';
 @import './components/admin/modal';
 @import './components/admin/productPreviewOverlay';
 @import './components/admin/addNewProduct';
 @import './components/shared/inputNumber';
 @import './components/shared/backToShopButton';
+@import './components/purchases/purchasedItem';
+@import './components/purchases/purchasesPage';

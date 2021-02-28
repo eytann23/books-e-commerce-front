@@ -9,7 +9,12 @@ export const signInToSite = async (email, password) => {
         );
         return{
             token: res.data.token,
-            user: {username: res.data.user.username, cart: res.data.user.cart}
+            user: {
+                username: res.data.user.username,
+                cart: res.data.user.cart,
+                purchases: res.data.user.purchases,
+                isAdmin: res.data.user.isAdmin
+            }
         } 
 
     }catch(err){
@@ -55,11 +60,31 @@ export const signOutOfSite = async (token) => {
 }
 
 export const updateUserCart = async (token,cart) => {
-    console.log(cart);
     try{
         const res = await Axios.post(
             process.env.REACT_APP_UPDATE_CART,
             {cart:[...cart]},
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            }
+        );
+        return res;
+    }catch(err){
+            throw new Error (err.message)
+    }
+}
+
+export const updateUserPurchases = async (token,purchases) => {
+    purchases.forEach(element => {
+        element["date"]=new Date();
+    });
+    try{
+        const res = await Axios.post(
+            process.env.REACT_APP_UPDATE_PURCHASES,
+            {purchases:[...purchases]},
             {
                 headers: {
                     'Content-Type': 'application/json',

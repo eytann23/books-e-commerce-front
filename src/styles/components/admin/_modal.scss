@@ -78,7 +78,7 @@
                 textarea{
                     width: 100%;
                     resize: none;
-                    padding: .5rem 1rem;
+                    padding: .6rem;
                     margin: 8px 0;
                     border: 1px solid #ccc;
                     border-radius: 4px;
@@ -86,7 +86,9 @@
                 button{
                     width: 100%;
                 }
-               
+               .red-border{
+                   border:1px solid red;
+               }
             }
     
             .cover-img{
@@ -104,10 +106,30 @@
                 }
                 .custom-file-upload {
                     margin-top: 1rem;
+                    text-align: center;
                     border: 1px solid #ccc;
                     display: inline-block;
                     padding: 6px 12px;
                     cursor: pointer;
+                }
+                .no-image__container{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 50%;
+                    
+                    // height: fit-content;
+                    border-radius: 5px;
+                    border: 1px solid rgb(190, 190, 190);
+
+
+                    svg{
+                        margin:auto 0;
+                        fill:gray;
+                        height: 50px;
+                        width: 50px;
+                    }
                 }
             }
             .green{
@@ -129,4 +151,40 @@
         
         }
         
+}
+
+
+@media #{$smallScreen}{
+    .Modal {
+        padding: .8rem;
+        
+    }
+
+    .Overlay {
+        top:6rem;
+    }
+    .form-modal{
+        width: 95%;
+        max-height:calc(100vh - 6rem);
+        overflow: scroll;
+        .form__container{
+            
+            form{
+                label{
+                    font-size: 1rem;
+                }
+            }
+
+            .cover-img{
+                .no-image__container{
+                    height: 30%;
+                    svg{
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+
+            }
+        }
+    }
 }

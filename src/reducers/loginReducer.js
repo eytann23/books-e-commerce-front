@@ -4,8 +4,9 @@ const loginReducer = (userData, action) => {
     
     switch (action.type) {
         case "SIGNIN":
-            if (action.user.username==="admin")
-                return { user: { ...action.user }, token: action.token,isAdmin:true };
+            // if (action.user.username==="admin")
+            //     return { user: { ...action.user }, token: action.token,isAdmin:true };
+            console.log({...action.user})
             return { user: { ...action.user }, token: action.token };
         case "SIGNOUT":
             return { user: null, token: "" };

@@ -2,7 +2,11 @@
 //optinal [{isbn:16235,quantity:2},{isbn:95135,quantity:1}]
 
 // export let initCartState=[{isbn:555,quantity:2}];
-export let initCartState=[];
+export let initCartState=
+    sessionStorage.getItem('cart') ? 
+    JSON.parse(sessionStorage.getItem('cart'))
+    :
+    [];
 
 const cartReducer = (cartState, action)=>{
     switch(action.type){

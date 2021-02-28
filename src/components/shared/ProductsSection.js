@@ -11,7 +11,7 @@ const ProductsSection =(props)=>{
     // const userData={isAdmin:true}
     
     const location=useLocation();
-    console.log(location.pathname)
+    
     return(
             
             <div className="products-section">
@@ -30,7 +30,7 @@ const ProductsSection =(props)=>{
                 )
             })}
             
-            {location.pathname==="/home" && userData && userData.isAdmin && <AddNewProduct />}
+            {location.pathname==="/home" && userData.user && userData.user.isAdmin && <AddNewProduct />}
             
             </div>
     )

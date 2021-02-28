@@ -1,6 +1,6 @@
 .search-dropdown{
     position: relative;
-    width: 85%;
+    width: calc(100% - 40px);
     background-color: white;
     color: $blackish;
     top:-5px;

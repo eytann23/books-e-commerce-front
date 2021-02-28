@@ -6,11 +6,6 @@
     justify-content: center;
     flex-direction: column;
 
-    // div{
-    //     color: $darkGrey;
-    //     font-size: 2rem;
-    // }
-
     h2{
         font-size: 3rem;
         text-align: center;
@@ -23,5 +18,14 @@
         margin:0 1.5rem;
         padding-bottom: .5rem;
         border-bottom:1px solid rgb(182, 182, 182);
+    }
+}
+
+
+@media #{$smallScreen}{
+    .home{
+        h2{
+            font-size: 2.6rem;
+        }
     }
 }

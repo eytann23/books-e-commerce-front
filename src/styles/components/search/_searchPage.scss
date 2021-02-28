@@ -8,3 +8,11 @@
         font-weight: 400;
     }
 }
+
+@media #{$smallScreen}{
+    .search-page{
+        h2{
+            font-size: 1.6rem;
+        }
+    }
+}

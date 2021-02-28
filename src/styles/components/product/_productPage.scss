@@ -106,3 +106,35 @@
 
     
 }
+@media #{$mediumScreen}{
+    .product-row{
+        grid-template-columns: 20% 50% 30%;
+    }
+}
+
+@media #{$smallScreen}{
+    .product-row{
+        grid-template-columns: 1fr;
+        row-gap: 1rem;
+
+        .product-details{
+            h1{
+                font-size:1.6rem;
+            }
+        }
+
+        img{
+            width: 55%;
+            margin: 0 auto;
+        }
+        .add-to-cart__form{
+            margin:0 2rem;
+            padding: 1rem 1.5rem;
+            box-shadow: 0 0 15px rgb(175, 175, 175);
+            .add-to-cart__detail{
+                font-size: 1.2rem;
+            }
+        }
+    }
+    
+}

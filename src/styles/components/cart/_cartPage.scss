@@ -6,8 +6,6 @@
         text-align: center;
         margin:2rem;
     }
-
-    
 }
 
 .cart-items__header{
@@ -33,3 +31,21 @@
     
 }
 
+
+@media #{$smallScreen}{
+    .cart-items__header{
+        // grid-template-columns: 15% 35% 10% 20% 10%;
+        // grid-template-columns: repeat(5,auto);
+        grid-template-columns: 15% 25% 20% 20% 10%;
+        justify-content: space-between;
+        column-gap: .5rem;
+        .total__header{
+            display: none;
+        }
+
+        h3{
+            font-size: 1rem;
+        }
+    }
+    
+}

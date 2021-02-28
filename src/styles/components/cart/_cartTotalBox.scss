@@ -15,6 +15,12 @@
             margin-left:2rem;
         }
     }
+    h6{
+        font-size: .8rem;
+        font-weight: 300;
+        color: red;
+        text-align: center;
+    }
 
     button{
         width: 100%;
@@ -33,4 +39,12 @@
             border:1px solid $lightGreen;
         }
     }
+}
+
+@media #{$smallScreen}{
+    .total-box{
+        justify-content: center;
+        float: none;
+    }
+    
 }

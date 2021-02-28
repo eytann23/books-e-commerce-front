@@ -43,20 +43,30 @@
 
 .page{
     .cart-alert__container{
-        top:10px;
-        left:40%;
+        position: fixed;
+        width:255px;
         padding: .8rem;
+        top:5rem;
+        left:50%;
+        margin-left: -125px;
+        @media #{$smallScreen}{
+            top:7rem;
+        }
     }
 }
 
 .product-preview{
     .cart-alert__container{
+        position: absolute;
         top:-5px;
         left:0;
         width: calc(100% + 3px);
         font-size: .8rem;
         padding: .8rem;
-
+        margin-left:0;
+        box-shadow: 0 5px 10px rgba(grey,.6);
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
         .message{
             font-size: .7rem;
         }

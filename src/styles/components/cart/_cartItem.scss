@@ -23,7 +23,8 @@
             cursor: pointer;
         }
     }
-
+    
+    //close button
     button{
         border-radius: 50%;
         width: fit-content;
@@ -44,5 +45,29 @@
     .name__item,
     .total-price__item{
         font-weight: 600;
+    }
+}
+
+
+@media #{$smallScreen}{
+    .cart-item{
+        padding:1rem .5rem;
+        grid-template-columns: 15% 25% 20% 20% 10%;
+        // grid-template-columns: repeat(5,auto);
+        justify-content: space-between;
+        column-gap: .5rem;
+        img{
+            width: 50px;
+        }
+        .total-price__item{
+            display: none;
+        }
+        .name__item{
+            font-size: .8rem;
+        }
+
+        button{
+            margin: 0 auto;
+        }
     }
 }

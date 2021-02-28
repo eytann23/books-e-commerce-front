@@ -1,0 +1,91 @@
+.purchased-item{
+    display: flex;
+    gap: 1rem;
+    
+    padding:1.5rem;
+    border-top: 1px solid rgb(187, 187, 187);
+    &:hover{
+        background-color: rgb(231, 231, 231);
+        box-shadow: 0 0 15px rgb(224, 224, 224);
+    }
+
+    img{
+        height: 220px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgb(175, 175, 175);
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .item-details{
+        display: flex;
+        flex-direction: column;
+        .name__item{
+            display: block;
+            padding-left: 1rem;
+            span{
+                font-size: 1.4rem;
+                font-weight: 600;
+                color:$darkGrey;
+                margin-right: .4rem;
+            }
+        }
+        
+        .item-info__container{
+            display: grid;
+            justify-content: left;
+            grid-template-areas:
+            "p p"
+            "p p";
+            
+            .total-price__item{
+                font-weight: 700;
+            }
+
+            p{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.4rem;
+                padding: 1rem;
+                margin: 0;
+                text-align: center;
+                span{
+                    font-weight: 700;
+                    // margin-right: .4rem;
+                    color: gray;
+                    font-size: 1rem;
+                }
+            }
+            
+        }
+    }
+    
+}
+
+@media #{$smallScreen}{
+    .purchased-item{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 140px;
+            height: auto;
+        }
+        .item-details{
+            .item-info__container{
+                // justify-content:space-between;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .name__item{
+                text-align: center;
+                padding-left: 0;
+                span{
+                    display: block;
+                }
+            }
+        }
+            
+    }
+}

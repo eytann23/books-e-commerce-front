@@ -4,6 +4,7 @@ import { setCart } from "../../actions/cartActions";
 import { signInAction } from "../../actions/loginActions";
 import { CartContext } from "../../context/cartContext";
 import { UserContext } from "../../context/userContext";
+import { saveUserOnCookie } from "../../cookies/cookies";
 import { signInToSite } from "../../server/auth";
 
 
@@ -39,7 +40,8 @@ const SignInForm = (props) => {
 	};
 
 	const history = useHistory();
-	const onSubmitform = (event) => {
+	
+	const onSubmitForm = (event) => {
 		event.preventDefault();
         console.log("sign in form:", email, password);
         
@@ -47,6 +49,7 @@ const SignInForm = (props) => {
             (userData)=>{
 				dispatchUserData(signInAction(userData));
 				cartDispatch(setCart(userData.user.cart));
+				saveUserOnCookie(userData);
                 history.push("/home");
             },
             (err)=>{
@@ -66,7 +69,7 @@ const SignInForm = (props) => {
 
 		{/* {errorMessage!=="" && <div className="error-message">{errorMessage}</div>} */}
 
-			<form onSubmit={onSubmitform}>
+			<form onSubmit={onSubmitForm}>
 				<input placeholder="Email" onBlur={onBlurEmailInput} />
 				{!isEmailinputValid && <div className="invalid-message">You must enter your email.</div>}
 				<input type="password" placeholder="Password" onBlur={onBlurPasswordInput} />

@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import validator from 'validator';
 import { signInAction } from '../../actions/loginActions';
 import { UserContext } from '../../context/userContext';
+import { saveUserOnCookie } from '../../cookies/cookies';
 import { signUpToSite } from '../../server/auth';
 
 
@@ -58,7 +59,7 @@ const SignUpForm = (props) => {
         const newUsername = event.target.value.trim();
         
         const isUsernameValid = (value) => {
-            return (value!=="admin" && value.length>1);
+            return (value.trim().toLowerCase()!=="admin" && value.length>1);
         };
         validateInput(
             newUsername,
@@ -114,13 +115,14 @@ const SignUpForm = (props) => {
         );
     };
     const history = useHistory();
-    const onSubmitform = (event) => {
+    const onSubmitForm = (event) => {
         event.preventDefault();
 
         signUpToSite(username,email,password).then(
             (userData)=>{
                 console.log(userData)
                 dispatchUserData(signInAction(userData))
+                saveUserOnCookie(userData);
                 history.push("/home");
             }
         ).catch((err)=>{
@@ -139,7 +141,7 @@ const SignUpForm = (props) => {
 
             {/* {errorMessage!=="" && <div className="error-message">{errorMessage}</div>} */}
 
-            <form onSubmit={onSubmitform}>
+            <form onSubmit={onSubmitForm}>
                 <input placeholder="Username" className={inputClasses[0]} onBlur={onBlurUsername} />
                 {invalidMessages[0] !== "" && <div className="invalid-message">{invalidMessages[0]}</div>}
                 <input placeholder="Email" className={inputClasses[1]} onBlur={onBlurEmail} />
